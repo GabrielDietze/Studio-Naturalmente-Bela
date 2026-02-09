@@ -1,0 +1,38 @@
+📸 PASTA DE IMAGENS - Studio Naturalmente Bela
+
+Adicione suas imagens nesta pasta com os seguintes nomes:
+
+1. header.jpg (ou .png)
+   - Imagem principal do site
+   - Tamanho recomendado: 1200x600px
+   - Pode ser uma foto do studio, produtos ou algo representativo
+
+2. beleza.jpg (ou .png)
+   - Representa os serviços de beleza
+   - Tamanho recomendado: 800x600px
+   - Sugestões: cabelo, maquiagem, cuidados capilares
+
+3. bem-estar.jpg (ou .png)
+   - Representa os serviços de bem-estar
+   - Tamanho recomendado: 800x600px
+   - Sugestões: massagem, spa, relaxamento
+
+4. andreia.jpg (ou .png)
+   - Foto da profissional Andreia
+   - Tamanho recomendado: 400x500px
+   - Foto profissional, de preferência com fundo neutro
+
+5. maria.jpg (ou .png)
+   - Foto da profissional Maria do Socorro
+   - Tamanho recomendado: 400x500px
+   - Foto profissional, de preferência com fundo neutro
+
+DICAS:
+- Use imagens de alta qualidade
+- Prefira formatos JPG para fotos
+- Mantenha um estilo visual consistente
+- Evite imagens muito escuras
+- As imagens serão redimensionadas automaticamente
+
+Após adicionar as imagens, siga as instruções no README.md 
+para atualizar o CSS e exibi-las no site.
