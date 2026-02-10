@@ -455,14 +455,102 @@ function App() {
 
       {/* FOOTER */}
       <footer className="footer">
-        <img
-          src="/images/logo-optimized.webp"
-          alt="Naturalmente Bela"
-          className="footer-logo"
-          width="200"
-          height="56"
-        />
-        <p className="footer-tagline">Beleza com propósito. Cuidado com verdade. Bem-estar de forma natural.</p>
+        <div className="footer-content">
+          <div className="footer-grid">
+            {/* Coluna 1 - Sobre */}
+            <div className="footer-column footer-about">
+              <img
+                src="/images/logo-optimized.webp"
+                alt="Naturalmente Bela"
+                className="footer-logo"
+                width="180"
+                height="50"
+              />
+              <p className="footer-tagline">
+                Beleza com propósito. Cuidado com verdade. Bem-estar de forma natural.
+              </p>
+              <div className="footer-social">
+                <button 
+                  onClick={handleWhatsAppClick}
+                  aria-label="WhatsApp do Studio"
+                  className="footer-social-icon"
+                >
+                  <IoLogoWhatsapp size={24} />
+                </button>
+                <button 
+                  onClick={handleInstagramClick}
+                  aria-label="Instagram do Studio"
+                  className="footer-social-icon"
+                >
+                  <IoLogoInstagram size={24} />
+                </button>
+              </div>
+            </div>
+
+            {/* Coluna 2 - Links Rápidos */}
+            <div className="footer-column">
+              <h3 className="footer-title">Navegação</h3>
+              <ul className="footer-links">
+                <li><button onClick={() => scrollToSection('home')}>Início</button></li>
+                <li><button onClick={() => scrollToSection('pilares')}>Pilares</button></li>
+                <li><button onClick={() => scrollToSection('profissionais')}>Profissionais</button></li>
+                <li><button onClick={() => scrollToSection('servicos')}>Serviços</button></li>
+                <li><button onClick={() => scrollToSection('diferenciais')}>Diferenciais</button></li>
+                <li><button onClick={() => scrollToSection('contato')}>Contato</button></li>
+              </ul>
+            </div>
+
+            {/* Coluna 3 - Contato */}
+            <div className="footer-column">
+              <h3 className="footer-title">Contato</h3>
+              <ul className="footer-contact">
+                <li>
+                  <MdLocationOn size={18} />
+                  <span>Rua Cordelina Silveira Mattos, 77<br/>Estoril, Belo Horizonte - MG</span>
+                </li>
+                <li>
+                  <IoLogoWhatsapp size={18} />
+                  <button onClick={handleWhatsAppClick}>
+                    WhatsApp: Agendar horário
+                  </button>
+                </li>
+                <li>
+                  <IoLogoInstagram size={18} />
+                  <button onClick={handleInstagramClick}>
+                    @naturalmente.bela
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Coluna 4 - Horário */}
+            <div className="footer-column">
+              <h3 className="footer-title">Horário de Atendimento</h3>
+              <ul className="footer-hours">
+                <li>
+                  <span className="day">Segunda a Sexta</span>
+                  <span className="time">9h - 18h</span>
+                </li>
+                <li>
+                  <span className="day">Sábado</span>
+                  <span className="time">9h - 14h</span>
+                </li>
+                <li>
+                  <span className="day">Domingo</span>
+                  <span className="time">Fechado</span>
+                </li>
+              </ul>
+              <p className="footer-note">Atendimento com hora marcada</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="footer-bottom">
+          <p className="footer-copyright">
+            © {new Date().getFullYear()} Studio Naturalmente Bela. Todos os direitos reservados.
+          </p>
+        </div>
       </footer>
     </div>
   );
