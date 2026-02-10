@@ -1,4 +1,89 @@
 /* ===========================
+   ANIMAÇÕES GLOBAIS
+   =========================== */
+
+/* Animações keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* Classe fade-in padrão */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.33, 0.66, 0.66, 1), 
+              transform 0.9s cubic-bezier(0.33, 0.66, 0.66, 1);
+}
+
+.fade-in.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.9s cubic-bezier(0.33, 0.66, 0.66, 1) forwards;
+}
+
+/* ===========================
    VARIÁVEIS E RESET
    =========================== */
 :root {
@@ -626,6 +711,16 @@
   grid-template-columns: 1fr;
   gap: 32px;
   align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.9s cubic-bezier(0.33, 0.66, 0.66, 1);
+  will-change: transform, opacity;
+}
+
+.professional-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.9s cubic-bezier(0.33, 0.66, 0.66, 1) forwards;
 }
 
 @media (min-width: 768px) {
@@ -758,7 +853,15 @@
   padding: 8px 0 22px;
   border-bottom: 1px solid rgba(201, 162, 77, 0.12);
   cursor: pointer;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.services-clean-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInUp 0.8s cubic-bezier(0.33, 0.66, 0.66, 1) forwards;
 }
 
 .services-clean-item::after {
@@ -768,11 +871,29 @@
   height: 1px;
   background-color: var(--color-gold);
   margin-top: 12px;
-  transition: width 0.25s ease;
+  transition: width 0.8s ease;
 }
 
-.services-clean-item:hover::after {
-  width: 44px;
+/* Desktop: hover effect */
+@media (min-width: 768px) {
+  .services-clean-item:hover::after {
+    width: 44px;
+  }
+  
+  .services-clean-item:hover .services-clean-name {
+    color: var(--color-gold);
+  }
+}
+
+/* Mobile: scroll-triggered effect */
+@media (max-width: 767px) {
+  .services-clean-item.in-view::after {
+    width: 44px;
+  }
+  
+  .services-clean-item.in-view .services-clean-name {
+    color: var(--color-gold);
+  }
 }
 
 .services-clean-name {
@@ -782,11 +903,7 @@
   color: #1f1a16;
   margin-bottom: 10px;
   letter-spacing: 0.02em;
-  transition: color 0.2s ease;
-}
-
-.services-clean-item:hover .services-clean-name {
-  color: var(--color-gold);
+  transition: color 0.8s ease;
 }
 
 .services-clean-desc {
@@ -864,14 +981,46 @@
   padding: 40px 32px;
   border-radius: 12px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.8s cubic-bezier(0.33, 0.66, 0.66, 1);
   border: 1px solid rgba(201, 162, 77, 0.1);
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  will-change: transform, opacity;
 }
 
-.differential-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(201, 162, 77, 0.3);
-  box-shadow: 0 12px 32px rgba(201, 162, 77, 0.08);
+/* Mobile: scroll-triggered effect */
+@media (max-width: 767px) {
+  .differential-card.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    border-color: rgba(201, 162, 77, 0.3);
+    box-shadow: 0 12px 32px rgba(201, 162, 77, 0.08);
+    animation: scaleIn 0.8s cubic-bezier(0.33, 0.66, 0.66, 1) forwards;
+  }
+  
+  .differential-card.in-view .differential-icon {
+    background: linear-gradient(135deg, rgba(201, 162, 77, 0.15), rgba(201, 162, 77, 0.08));
+    transform: scale(1.1);
+  }
+}
+
+/* Desktop: hover effect */
+@media (min-width: 768px) {
+  .differential-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  .differential-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(201, 162, 77, 0.3);
+    box-shadow: 0 20px 48px rgba(201, 162, 77, 0.12);
+  }
+  
+  .differential-card:hover .differential-icon {
+    background: linear-gradient(135deg, rgba(201, 162, 77, 0.2), rgba(201, 162, 77, 0.1));
+    transform: scale(1.15) rotate(5deg);
+  }
 }
 
 .differential-icon {
@@ -888,12 +1037,7 @@
   border-radius: 12px;
   margin-left: auto;
   margin-right: auto;
-  transition: all 0.3s ease;
-}
-
-.differential-card:hover .differential-icon {
-  background: linear-gradient(135deg, rgba(201, 162, 77, 0.15), rgba(201, 162, 77, 0.08));
-  transform: scale(1.1);
+  transition: all 0.8s ease;
 }
 
 .differential-card h3 {

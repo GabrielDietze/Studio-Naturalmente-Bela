@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { IoLogoWhatsapp, IoLogoInstagram } from 'react-icons/io5';
 import { HiSparkles, HiHeart } from 'react-icons/hi2';
@@ -6,6 +6,79 @@ import { MdLocationOn, MdHearing, MdEco, MdSelfImprovement, MdSchool, MdHome, Md
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Observer para elementos fade-in
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    // Observer para cards com animação escalonada
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.dataset.delay || 0;
+            setTimeout(() => {
+              entry.target.classList.add('in-view');
+            }, parseInt(delay));
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    // Aplicar observer a elementos fade-in
+    const fadeElements = document.querySelectorAll('.fade-in');
+    fadeElements.forEach((el) => fadeObserver.observe(el));
+
+    // Aplicar observer a cards de serviço com delay
+    const serviceItems = document.querySelectorAll('.services-clean-item');
+    serviceItems.forEach((item, idx) => {
+      item.dataset.delay = idx * 80;
+      cardObserver.observe(item);
+    });
+
+    // Aplicar observer a cards de profissionais
+    const professionalCards = document.querySelectorAll('.professional-card');
+    professionalCards.forEach((card, idx) => {
+      card.dataset.delay = idx * 150;
+      cardObserver.observe(card);
+    });
+
+    // Aplicar observer a cards de diferenciais com delay
+    const differentialCards = document.querySelectorAll('.differential-card');
+    differentialCards.forEach((card, idx) => {
+      card.dataset.delay = idx * 100;
+      cardObserver.observe(card);
+    });
+
+    // Aplicar observer a cards de contato
+    const contactCards = document.querySelectorAll('.contact-card');
+    contactCards.forEach((card, idx) => {
+      card.dataset.delay = idx * 120;
+      cardObserver.observe(card);
+    });
+
+    // Aplicar observer a pilares
+    const pillarElements = document.querySelectorAll('.pillar');
+    pillarElements.forEach((pillar, idx) => {
+      pillar.dataset.delay = idx * 150;
+      cardObserver.observe(pillar);
+    });
+
+    return () => {
+      fadeObserver.disconnect();
+      cardObserver.disconnect();
+    };
+  }, []);
 
   const handleWhatsAppClick = () => {
     // Substitua pelo número real do WhatsApp (formato: 5511999999999)
@@ -84,7 +157,7 @@ function App() {
       {/* SEÇÃO 1 - HEADER/TOPO - HERO */}
       <header className="section header hero" id="home">
         <div className="hero-content">
-          <div className="hero-text">
+          <div className="hero-text fade-in">
             <img 
               src="/images/logo.png" 
               alt="Naturalmente Bela" 
@@ -114,7 +187,7 @@ function App() {
               </button>
             </div>
           </div>
-          <div className="hero-image-container">
+          <div className="hero-image-container fade-in">
             <div className="hero-image" role="img" aria-label="Studio Naturalmente Bela"></div>
           </div>
         </div>
@@ -122,7 +195,7 @@ function App() {
 
       {/* SEÇÃO 2 - FRASE INSTITUCIONAL */}
       <section className="section intro" aria-label="Apresentação">
-        <p className="intro-text">
+        <p className="intro-text fade-in">
           Mais do que oferecer serviços estéticos, o Studio Naturalmente Bela entrega 
           experiências de massoterapia humanizada, acolhimento genuíno e transformação 
           através do toque consciente, respeitando a individualidade de cada cliente.
@@ -135,7 +208,7 @@ function App() {
       {/* SEÇÃO 3 - PILARES DO STUDIO */}
       <section className="section pillars" id="pilares" aria-label="Nossos Pilares">
         <div className="pillars-grid">
-          <div className="pillar">
+          <div className="pillar fade-in">
             <div className="pillar-image pillar-image-beauty" role="img" aria-label="Serviços de Beleza">
               <div className="pillar-icon">
                 <HiSparkles />
@@ -148,7 +221,7 @@ function App() {
               onde você se sente valorizada e bem atendida.
             </p>
           </div>
-          <div className="pillar">
+          <div className="pillar fade-in">
             <div className="pillar-image pillar-image-wellness" role="img" aria-label="Serviços de Bem-estar">
               <div className="pillar-icon">
                 <HiHeart />
@@ -170,9 +243,9 @@ function App() {
 
       {/* SEÇÃO 4 - PROFISSIONAIS */}
       <section className="section professionals" id="profissionais" aria-label="Nossas Profissionais">
-        <h2 className="section-title">Profissionais</h2>
+        <h2 className="section-title fade-in">Profissionais</h2>
         
-        <div className="professional-card">
+        <div className="professional-card fade-in">
           <div className="professional-image professional-image-maria" role="img" aria-label="Maria do Socorro Magalhães"></div>
           <div className="professional-content">
             <h3 className="professional-name">Maria do Socorro Magalhães</h3>
@@ -187,7 +260,7 @@ function App() {
           </div>
         </div>
 
-        <div className="professional-card">
+        <div className="professional-card fade-in">
           <div className="professional-image professional-image-andreia" role="img" aria-label="Andreia Silva Nogueira"></div>
           <div className="professional-content">
             <h3 className="professional-name">Andreia Silva Nogueira</h3>
@@ -208,7 +281,7 @@ function App() {
 
       {/* SEÇÃO 5 - SERVIÇOS */}
       <section className="section services" id="servicos" aria-label="Serviços Oferecidos">
-        <div className="services-header">
+        <div className="services-header fade-in">
           <h2 className="services-title">Serviços</h2>
           <span className="services-title-line" aria-hidden="true"></span>
         </div>
@@ -234,7 +307,7 @@ function App() {
 
       {/* SEÇÃO 6 - DIFERENCIAIS */}
       <section className="section differentials" id="diferenciais" aria-label="Nossos Diferenciais">
-        <h2 className="section-title">O que nos torna diferentes</h2>
+        <h2 className="section-title fade-in">O que nos torna diferentes</h2>
         
         <div className="differential-grid">
           <div className="differential-card">
@@ -292,15 +365,15 @@ function App() {
 
       {/* SEÇÃO 7 - CONTATO */}
       <section className="section contact" id="contato" aria-label="Contato">
-        <h2 className="section-title">Venha nos conhecer</h2>
-        <p className="contact-text">
+        <h2 className="section-title fade-in">Venha nos conhecer</h2>
+        <p className="contact-text fade-in">
           Studio Naturalmente Bela – Um espaço dedicado ao seu bem-estar e beleza.
         </p>
 
         <div className="contact-wrapper">
           {/* Contact Info Cards */}
           <div className="contact-grid">
-            <div className="contact-card">
+            <div className="contact-card fade-in">
               <div className="contact-icon">
                 <MdLocationOn size={32} />
               </div>
@@ -358,7 +431,7 @@ function App() {
           </div>
 
           {/* Google Maps Embed */}
-          <div className="maps-container">
+          <div className="maps-container fade-in">
             <iframe 
               src="https://www.google.com/maps?q=Rua%20Cordelina%20Silveira%20Mattos,%2077,%20Estoril,%20Belo%20Horizonte%20-%20MG&output=embed"
               width="100%"
