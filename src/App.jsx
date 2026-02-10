@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { IoLogoWhatsapp, IoLogoInstagram } from 'react-icons/io5';
 import { HiSparkles, HiHeart } from 'react-icons/hi2';
-import { MdLocationOn, MdRecommend, MdHearing, MdEco, MdSelfImprovement, MdSchool, MdHome, MdFavoriteBorder } from 'react-icons/md';
+import { MdLocationOn, MdHearing, MdEco, MdSelfImprovement, MdSchool, MdHome, MdFavoriteBorder } from 'react-icons/md';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
