@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { IoLogoWhatsapp, IoLogoInstagram } from 'react-icons/io5';
 import { HiSparkles, HiHeart } from 'react-icons/hi2';
+import { MdLocationOn, MdRecommend, MdHearing, MdEco, MdSelfImprovement, MdSchool, MdHome, MdFavoriteBorder } from 'react-icons/md';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,6 +20,11 @@ function App() {
     window.open(`https://www.instagram.com/${instagramHandle}`, '_blank');
   };
 
+  const handleMapsClick = () => {
+    const address = 'Rua Cordelina Silveira Mattos, 77, Estoril, Belo Horizonte - MG';
+    window.open(`https://www.google.com/maps?q=${encodeURIComponent(address)}`, '_blank');
+  };
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -26,6 +32,15 @@ function App() {
       setMenuOpen(false);
     }
   };
+
+  const servicesClean = [
+    { name: "Massoterapia", desc: "Relaxamento profundo e alívio de tensões" },
+    { name: "Estética Facial", desc: "Tratamentos para renovação e equilíbrio da pele" },
+    { name: "SPA & Rituais", desc: "Experiências sensoriais completas" },
+    { name: "Corpo & Drenagem", desc: "Sensação de leveza e bem-estar" },
+    { name: "Pés & Reflexologia", desc: "Equilíbrio do corpo através dos pés" },
+    { name: "Tratamentos Especiais", desc: "Protocolos exclusivos do studio" }
+  ];
 
   return (
     <div className="app">
@@ -37,7 +52,11 @@ function App() {
             onClick={() => scrollToSection('home')}
             aria-label="Voltar ao início"
           >
-            Naturalmente Bela
+            <img
+              src="/images/logo.png"
+              alt="Naturalmente Bela"
+              className="logo-image"
+            />
           </button>
           
           <button 
@@ -66,11 +85,15 @@ function App() {
       <header className="section header hero" id="home">
         <div className="hero-content">
           <div className="hero-text">
-            <h1 className="logo" role="banner">Naturalmente Bela</h1>
-            <p className="subtitle">Salão de Beleza & Estética</p>
+            <img 
+              src="/images/logo.png" 
+              alt="Naturalmente Bela" 
+              className="hero-logo"
+            />
+            <p className="subtitle">Massoterapia, Bem-estar & Beleza</p>
             <p className="hero-description">
-              Um espaço dedicado ao cuidado integral, onde beleza e bem-estar 
-              caminham juntos de forma equilibrada, natural e humanizada.
+              Um espaço dedicado ao cuidado integral, onde massoterapia humanizada, 
+              bem-estar e beleza natural caminham juntos de forma equilibrada e consciente.
             </p>
             <div className="hero-cta">
               <button 
@@ -100,8 +123,9 @@ function App() {
       {/* SEÇÃO 2 - FRASE INSTITUCIONAL */}
       <section className="section intro" aria-label="Apresentação">
         <p className="intro-text">
-          Mais do que oferecer serviços estéticos, o Studio Naturalmente Bela entrega experiência, 
-          acolhimento e transformação emocional, respeitando a individualidade de cada cliente.
+          Mais do que oferecer serviços estéticos, o Studio Naturalmente Bela entrega 
+          experiências de massoterapia humanizada, acolhimento genuíno e transformação 
+          através do toque consciente, respeitando a individualidade de cada cliente.
         </p>
       </section>
 
@@ -110,16 +134,6 @@ function App() {
 
       {/* SEÇÃO 3 - PILARES DO STUDIO */}
       <section className="section pillars" id="pilares" aria-label="Nossos Pilares">
-        <div className="section-cta-top">
-          <button 
-            className="cta-button-inline cta-instagram-inline" 
-            onClick={handleInstagramClick}
-            aria-label="Ver no Instagram"
-          >
-            <IoLogoInstagram className="cta-icon" />
-            Veja nosso trabalho no Instagram
-          </button>
-        </div>
         <div className="pillars-grid">
           <div className="pillar">
             <div className="pillar-image pillar-image-beauty" role="img" aria-label="Serviços de Beleza">
@@ -142,9 +156,10 @@ function App() {
             </div>
             <h2>Bem-estar</h2>
             <p>
-              Massoterapia humanizada e consciente, voltada ao equilíbrio físico e emocional. 
-              Técnicas naturais que respeitam o corpo, escutam suas necessidades e promovem 
-              acolhimento, equilíbrio e reconexão.
+              Massoterapia humanizada, técnicas naturais de relaxamento e revitalização 
+              que promovem equilíbrio físico e emocional. Cada sessão é um convite à reconexão, 
+              ao acolhimento e à transformação através do toque consciente, respeitando 
+              as necessidades individuais do seu corpo e espírito.
             </p>
           </div>
         </div>
@@ -157,21 +172,6 @@ function App() {
       <section className="section professionals" id="profissionais" aria-label="Nossas Profissionais">
         <h2 className="section-title">Profissionais</h2>
         
-        <div className="professional-card">
-          <div className="professional-image professional-image-andreia" role="img" aria-label="Andreia Silva Nogueira"></div>
-          <div className="professional-content">
-            <h3 className="professional-name">Andreia Silva Nogueira</h3>
-            <p className="professional-area">Área da Beleza</p>
-            <p className="professional-description">
-              Com 20 anos de trajetória, Andreia trabalha com sensibilidade estética para realçar 
-              a beleza natural de cada cliente. Seu trabalho vai além da técnica: é um momento de 
-              cuidado pessoal onde você experimenta conforto, atenção genuína e sai do studio mais 
-              confiante. O foco está na saúde dos fios, harmonia do visual e resultados naturais 
-              que respeitam quem você é.
-            </p>
-          </div>
-        </div>
-
         <div className="professional-card">
           <div className="professional-image professional-image-maria" role="img" aria-label="Maria do Socorro Magalhães"></div>
           <div className="professional-content">
@@ -186,6 +186,21 @@ function App() {
             </p>
           </div>
         </div>
+
+        <div className="professional-card">
+          <div className="professional-image professional-image-andreia" role="img" aria-label="Andreia Silva Nogueira"></div>
+          <div className="professional-content">
+            <h3 className="professional-name">Andreia Silva Nogueira</h3>
+            <p className="professional-area">Área da Beleza</p>
+            <p className="professional-description">
+              Com 20 anos de trajetória, Andreia trabalha com sensibilidade estética para realçar 
+              a beleza natural de cada cliente. Seu trabalho vai além da técnica: é um momento de 
+              cuidado pessoal onde você experimenta conforto, atenção genuína e sai do studio mais 
+              confiante. O foco está na saúde dos fios, harmonia do visual e resultados naturais 
+              que respeitam quem você é.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* DIVISÓRIA */}
@@ -193,48 +208,24 @@ function App() {
 
       {/* SEÇÃO 5 - SERVIÇOS */}
       <section className="section services" id="servicos" aria-label="Serviços Oferecidos">
-        <h2 className="section-title">Serviços</h2>
-        
-        <div className="section-cta-services">
-          <p className="cta-text">Interessada em algum serviço?</p>
-          <div className="cta-group">
-            <button 
-              className="cta-button-small cta-whatsapp" 
-              onClick={handleWhatsAppClick}
-              aria-label="Agendar pelo WhatsApp"
-            >
-              <IoLogoWhatsapp className="cta-icon" />
-              WhatsApp
-            </button>
-            <button 
-              className="cta-button-small cta-instagram" 
-              onClick={handleInstagramClick}
-              aria-label="Ver no Instagram"
-            >
-              <IoLogoInstagram className="cta-icon" />
-              Instagram
-            </button>
-          </div>
-        </div>
-        
-        <div className="service-category">
-          <h3 className="service-category-title">Beleza</h3>
-          <ul className="service-list">
-            <li>Escova e hidratação capilar</li>
-            <li>Coloração capilar</li>
-            <li>Design de sobrancelhas</li>
-            <li>Depilação</li>
-          </ul>
+        <div className="services-header">
+          <h2 className="services-title">Serviços</h2>
+          <span className="services-title-line" aria-hidden="true"></span>
         </div>
 
-        <div className="service-category">
-          <h3 className="service-category-title">Estética & Bem-estar</h3>
-          <ul className="service-list">
-            <li>Drenagem linfática</li>
-            <li>Massagem relaxante</li>
-            <li>Reflexologia podal</li>
-            <li>Revitalização facial</li>
-          </ul>
+        <div className="services-clean-grid">
+          {servicesClean.map((service, idx) => (
+            <div key={idx} className="services-clean-item">
+              <h3 className="services-clean-name">{service.name}</h3>
+              <p className="services-clean-desc">{service.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="services-clean-cta">
+          <button className="services-clean-link" onClick={handleWhatsAppClick}>
+            Agendar Experiência
+          </button>
         </div>
       </section>
 
@@ -245,25 +236,54 @@ function App() {
       <section className="section differentials" id="diferenciais" aria-label="Nossos Diferenciais">
         <h2 className="section-title">O que nos torna diferentes</h2>
         
-        <div className="differential-list">
-          <p className="differential-item">
-            Atendimento individualizado, sem pressa, baseado na escuta ativa das suas necessidades.
-          </p>
-          <p className="differential-item">
-            Cada procedimento começa com conversa, avaliação e orientação personalizada.
-          </p>
-          <p className="differential-item">
-            Ambiente tranquilo e seguro, onde você faz uma pausa da rotina.
-          </p>
-          <p className="differential-item">
-            Mais de duas décadas de experiência somadas à formação contínua.
-          </p>
-          <p className="differential-item">
-            Ética profissional: respeito, responsabilidade e transparência em cada atendimento.
-          </p>
-          <p className="differential-item">
-            Não trabalhamos com padrões impostos, mas com valorização da sua beleza real.
-          </p>
+        <div className="differential-grid">
+          <div className="differential-card">
+            <div className="differential-icon differential-icon-1">
+              <MdHearing size={40} />
+            </div>
+            <h3>Escuta Ativa</h3>
+            <p>Cada cliente é único. Conversamos antes, durante e depois para entender suas verdadeiras necessidades.</p>
+          </div>
+          
+          <div className="differential-card">
+            <div className="differential-icon differential-icon-2">
+              <MdEco size={40} />
+            </div>
+            <h3>Abordagem Natural</h3>
+            <p>Técnicas humanizadas e conscientes que respeitam seu corpo, sua pele e seu bem-estar integral.</p>
+          </div>
+
+          <div className="differential-card">
+            <div className="differential-icon differential-icon-3">
+              <MdSelfImprovement size={40} />
+            </div>
+            <h3>Toque Terapêutico</h3>
+            <p>O toque é um instrumento de acolhimento. Cada movimento é pensado para sua reconexão e equilíbrio.</p>
+          </div>
+
+          <div className="differential-card">
+            <div className="differential-icon differential-icon-4">
+              <MdSchool size={40} />
+            </div>
+            <h3>Expertise & Evolução</h3>
+            <p>Mais de 20 anos de experiência + formação contínua em cursos especializados. Conhecimento que se renova.</p>
+          </div>
+
+          <div className="differential-card">
+            <div className="differential-icon differential-icon-5">
+              <MdHome size={40} />
+            </div>
+            <h3>Espaço de Paz</h3>
+            <p>Ambiente tranquilo e acolhedor onde você realmente se desconecta, descansa e se reconecta consigo mesma.</p>
+          </div>
+
+          <div className="differential-card">
+            <div className="differential-icon differential-icon-6">
+              <MdFavoriteBorder size={40} />
+            </div>
+            <h3>Sem Padrões</h3>
+            <p>Não acreditamos em beleza única. Valorizamos sua singularidade, sua personalidade, sua beleza real.</p>
+          </div>
         </div>
       </section>
 
@@ -272,23 +292,93 @@ function App() {
 
       {/* SEÇÃO 7 - CONTATO */}
       <section className="section contact" id="contato" aria-label="Contato">
-        <h2 className="section-title">Agende seu horário</h2>
+        <h2 className="section-title">Venha nos conhecer</h2>
         <p className="contact-text">
-          Entre em contato pelo WhatsApp e reserve um momento de cuidado para você.
+          Studio Naturalmente Bela – Um espaço dedicado ao seu bem-estar e beleza.
         </p>
-        <button 
-          className="whatsapp-button" 
-          onClick={handleWhatsAppClick}
-          aria-label="Enviar mensagem pelo WhatsApp"
-        >
-          <IoLogoWhatsapp className="cta-icon" />
-          Falar pelo WhatsApp
-        </button>
+
+        <div className="contact-wrapper">
+          {/* Contact Info Cards */}
+          <div className="contact-grid">
+            <div className="contact-card">
+              <div className="contact-icon">
+                <MdLocationOn size={32} />
+              </div>
+              <h3>Localização</h3>
+              <p className="contact-info">
+                Rua Cordelina Silveira Mattos, 77<br/>
+                Estoril, Belo Horizonte - MG
+              </p>
+              <div className="contact-actions">
+                <button 
+                  className="contact-button contact-button-outline" 
+                  onClick={handleMapsClick}
+                  aria-label="Abrir localização no Google Maps"
+                >
+                  Abrir no Maps
+                </button>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="contact-icon">
+                <IoLogoWhatsapp size={32} />
+              </div>
+              <h3>WhatsApp</h3>
+              <p className="contact-info">Fale conosco e agende seu atendimento</p>
+              <div className="contact-actions">
+                <button 
+                  className="contact-button whatsapp-button" 
+                  onClick={handleWhatsAppClick}
+                  aria-label="Enviar mensagem pelo WhatsApp"
+                >
+                  <IoLogoWhatsapp className="cta-icon" />
+                  Enviar Mensagem
+                </button>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="contact-icon">
+                <IoLogoInstagram size={32} />
+              </div>
+              <h3>Instagram</h3>
+              <p className="contact-info">Veja nossos trabalhos e novidades</p>
+              <div className="contact-actions">
+                <button 
+                  className="contact-button instagram-button" 
+                  onClick={handleInstagramClick}
+                  aria-label="Seguir no Instagram"
+                >
+                  <IoLogoInstagram className="cta-icon" />
+                  Seguir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Google Maps Embed */}
+          <div className="maps-container">
+            <iframe 
+              src="https://www.google.com/maps?q=Rua%20Cordelina%20Silveira%20Mattos,%2077,%20Estoril,%20Belo%20Horizonte%20-%20MG&output=embed"
+              width="100%"
+              height="400"
+              style={{ border: 0, borderRadius: '12px' }}
+              allowFullScreen={true}
+              loading="lazy"
+              title="Studio Naturalmente Bela - Localização"
+            ></iframe>
+          </div>
+        </div>
       </section>
 
       {/* FOOTER */}
       <footer className="footer">
-        <p className="footer-text">Studio Naturalmente Bela</p>
+        <img
+          src="/images/logo.png"
+          alt="Naturalmente Bela"
+          className="footer-logo"
+        />
         <p className="footer-tagline">Beleza com propósito. Cuidado com verdade. Bem-estar de forma natural.</p>
       </footer>
     </div>
