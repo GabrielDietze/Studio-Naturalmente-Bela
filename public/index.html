@@ -10,15 +10,13 @@
     />
     
     <!-- Preconnect críticos para performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     
     <!-- Preload da imagem LCP -->
     <link rel="preload" as="image" href="%PUBLIC_URL%/images/logo-optimized.webp" fetchpriority="high">
     
-    <!-- Fontes inline críticas -->
+    <!-- CSS crítico para o primeiro render -->
     <style>
       /* Critical CSS - Above the fold */
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,37 +27,12 @@
         -moz-osx-font-smoothing: grayscale;
       }
       
-      /* Preload critical fonts */
-      @font-face {
-        font-family: 'Lato';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: local('Lato Regular'), local('Lato-Regular'),
-             url(https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
-      }
-      @font-face {
-        font-family: 'Cormorant Garamond';
-        font-style: normal;
-        font-weight: 500;
-        font-display: swap;
-        src: local('Cormorant Garamond Medium'), local('CormorantGaramond-Medium'),
-             url(https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjQAllvuQWJ5heb.woff2) format('woff2');
-      }
-      
       /* Critical styles for initial render */
       #root { min-height: 100vh; }
       .app { background-color: #FFFFFF; min-height: 100vh; }
       .hero { padding: 80px 24px; }
       .hero-logo { width: auto; max-width: 90%; height: auto; }
     </style>
-    
-    <!-- Carregar fontes restantes de forma assíncrona -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    </noscript>
     
     <title>Studio Naturalmente Bela - Salão de Beleza & Estética</title>
   </head>
