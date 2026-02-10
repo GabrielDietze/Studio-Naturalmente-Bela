@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://studio-naturalmente-bela.vercel.app/sitemap.xml

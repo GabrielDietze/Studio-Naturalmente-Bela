@@ -77,6 +77,25 @@ Depois faça deploy para Vercel:
 vercel --prod
 ```
 
+### ⚠️ IMPORTANTE: Após o Deploy
+Limpe o cache do CDN da Vercel para garantir que as mudanças sejam aplicadas:
+```bash
+vercel deploy --force
+```
+
+Ou no painel da Vercel:
+1. Acesse o projeto no dashboard
+2. Vá em Settings > Domains
+3. Clique em "Purge Cache" para o domínio
+
+### Verificar se funcionou:
+Abra o DevTools do Chrome:
+1. Network tab > Disable cache
+2. Hard refresh (Ctrl+Shift+R)
+3. Verifique se `logo-optimized.webp` está sendo carregada
+4. Verifique os preconnects no HTML
+5. Rode o Lighthouse novamente
+
 ---
 
 ## 📈 Resultados Esperados
