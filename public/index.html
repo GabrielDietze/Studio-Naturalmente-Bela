@@ -8,9 +8,21 @@
       name="description"
       content="Studio Naturalmente Bela - Salão de Beleza & Estética. Beleza com propósito, cuidado com verdade, bem-estar de forma natural."
     />
+    <!-- Preconnect para recursos externos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Carregar fontes de forma otimizada com display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    </noscript>
+    
+    <!-- Preload da logo para LCP -->
+    <link rel="preload" as="image" href="/images/logo-optimized.webp" fetchpriority="high">
+    
     <title>Studio Naturalmente Bela - Salão de Beleza & Estética</title>
   </head>
   <body>

@@ -126,9 +126,11 @@ function App() {
             aria-label="Voltar ao início"
           >
             <img
-              src="/images/logo.png"
+              src="/images/logo-optimized.webp"
               alt="Naturalmente Bela"
               className="logo-image"
+              width="150"
+              height="42"
             />
           </button>
           
@@ -154,14 +156,19 @@ function App() {
         </div>
       </nav>
 
-      {/* SEÇÃO 1 - HEADER/TOPO - HERO */}
-      <header className="section header hero" id="home">
+      {/* CONTEÚDO PRINCIPAL */}
+      <main>
+        {/* SEÇÃO 1 - HEADER/TOPO - HERO */}
+        <header className="section header hero" id="home">
         <div className="hero-content">
           <div className="hero-text fade-in">
             <img 
-              src="/images/logo.png" 
+              src="/images/logo-optimized.webp" 
               alt="Naturalmente Bela" 
               className="hero-logo"
+              width="377"
+              height="105"
+              fetchpriority="high"
             />
             <p className="subtitle">Massoterapia, Bem-estar & Beleza</p>
             <p className="hero-description">
@@ -191,22 +198,22 @@ function App() {
             <div className="hero-image" role="img" aria-label="Studio Naturalmente Bela"></div>
           </div>
         </div>
-      </header>
+        </header>
 
-      {/* SEÇÃO 2 - FRASE INSTITUCIONAL */}
-      <section className="section intro" aria-label="Apresentação">
-        <p className="intro-text fade-in">
-          Mais do que oferecer serviços estéticos, o Studio Naturalmente Bela entrega 
-          experiências de massoterapia humanizada, acolhimento genuíno e transformação 
-          através do toque consciente, respeitando a individualidade de cada cliente.
-        </p>
-      </section>
+        {/* SEÇÃO 2 - FRASE INSTITUCIONAL */}
+        <section className="section intro" aria-label="Apresentação">
+          <p className="intro-text fade-in">
+            Mais do que oferecer serviços estéticos, o Studio Naturalmente Bela entrega 
+            experiências de massoterapia humanizada, acolhimento genuíno e transformação 
+            através do toque consciente, respeitando a individualidade de cada cliente.
+          </p>
+        </section>
 
-      {/* DIVISÓRIA */}
-      <div className="divider"></div>
+        {/* DIVISÓRIA */}
+        <div className="divider"></div>
 
-      {/* SEÇÃO 3 - PILARES DO STUDIO */}
-      <section className="section pillars" id="pilares" aria-label="Nossos Pilares">
+        {/* SEÇÃO 3 - PILARES DO STUDIO */}
+        <section className="section pillars" id="pilares" aria-label="Nossos Pilares">
         <div className="pillars-grid">
           <div className="pillar fade-in">
             <div className="pillar-image pillar-image-beauty" role="img" aria-label="Serviços de Beleza">
@@ -236,14 +243,14 @@ function App() {
             </p>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* DIVISÓRIA */}
-      <div className="divider"></div>
+        {/* DIVISÓRIA */}
+        <div className="divider"></div>
 
-      {/* SEÇÃO 4 - PROFISSIONAIS */}
-      <section className="section professionals" id="profissionais" aria-label="Nossas Profissionais">
-        <h2 className="section-title fade-in">Profissionais</h2>
+        {/* SEÇÃO 4 - PROFISSIONAIS */}
+        <section className="section professionals" id="profissionais" aria-label="Nossas Profissionais">
+          <h2 className="section-title fade-in">Profissionais</h2>
         
         <div className="professional-card fade-in">
           <div className="professional-image professional-image-maria" role="img" aria-label="Maria do Socorro Magalhães"></div>
@@ -274,42 +281,42 @@ function App() {
             </p>
           </div>
         </div>
-      </section>
+        </section>
 
-      {/* DIVISÓRIA */}
-      <div className="divider"></div>
+        {/* DIVISÓRIA */}
+        <div className="divider"></div>
 
-      {/* SEÇÃO 5 - SERVIÇOS */}
-      <section className="section services" id="servicos" aria-label="Serviços Oferecidos">
-        <div className="services-header fade-in">
+        {/* SEÇÃO 5 - SERVIÇOS */}
+        <section className="section services" id="servicos" aria-label="Serviços Oferecidos">
+          <div className="services-header fade-in">
           <h2 className="services-title">Serviços</h2>
           <span className="services-title-line" aria-hidden="true"></span>
         </div>
 
-        <div className="services-clean-grid">
-          {servicesClean.map((service, idx) => (
-            <div key={idx} className="services-clean-item">
-              <h3 className="services-clean-name">{service.name}</h3>
-              <p className="services-clean-desc">{service.desc}</p>
-            </div>
-          ))}
-        </div>
+          <div className="services-clean-grid">
+            {servicesClean.map((service, idx) => (
+              <div key={idx} className="services-clean-item">
+                <h3 className="services-clean-name">{service.name}</h3>
+                <p className="services-clean-desc">{service.desc}</p>
+              </div>
+            ))}
+          </div>
 
-        <div className="services-clean-cta">
-          <button className="services-clean-link" onClick={handleWhatsAppClick}>
-            Agendar Experiência
-          </button>
-        </div>
-      </section>
+          <div className="services-clean-cta">
+            <button className="services-clean-link" onClick={handleWhatsAppClick}>
+              Agendar Experiência
+            </button>
+          </div>
+        </section>
 
-      {/* DIVISÓRIA */}
-      <div className="divider"></div>
+        {/* DIVISÓRIA */}
+        <div className="divider"></div>
 
-      {/* SEÇÃO 6 - DIFERENCIAIS */}
-      <section className="section differentials" id="diferenciais" aria-label="Nossos Diferenciais">
-        <h2 className="section-title fade-in">O que nos torna diferentes</h2>
-        
-        <div className="differential-grid">
+        {/* SEÇÃO 6 - DIFERENCIAIS */}
+        <section className="section differentials" id="diferenciais" aria-label="Nossos Diferenciais">
+          <h2 className="section-title fade-in">O que nos torna diferentes</h2>
+          
+          <div className="differential-grid">
           <div className="differential-card">
             <div className="differential-icon differential-icon-1">
               <MdHearing size={40} />
@@ -357,22 +364,22 @@ function App() {
             <h3>Sem Padrões</h3>
             <p>Não acreditamos em beleza única. Valorizamos sua singularidade, sua personalidade, sua beleza real.</p>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      {/* DIVISÓRIA */}
-      <div className="divider"></div>
+        {/* DIVISÓRIA */}
+        <div className="divider"></div>
 
-      {/* SEÇÃO 7 - CONTATO */}
-      <section className="section contact" id="contato" aria-label="Contato">
-        <h2 className="section-title fade-in">Venha nos conhecer</h2>
-        <p className="contact-text fade-in">
-          Studio Naturalmente Bela – Um espaço dedicado ao seu bem-estar e beleza.
-        </p>
+        {/* SEÇÃO 7 - CONTATO */}
+        <section className="section contact" id="contato" aria-label="Contato">
+          <h2 className="section-title fade-in">Venha nos conhecer</h2>
+          <p className="contact-text fade-in">
+            Studio Naturalmente Bela – Um espaço dedicado ao seu bem-estar e beleza.
+          </p>
 
-        <div className="contact-wrapper">
-          {/* Contact Info Cards */}
-          <div className="contact-grid">
+          <div className="contact-wrapper">
+            {/* Contact Info Cards */}
+            <div className="contact-grid">
             <div className="contact-card fade-in">
               <div className="contact-icon">
                 <MdLocationOn size={32} />
@@ -442,15 +449,18 @@ function App() {
               title="Studio Naturalmente Bela - Localização"
             ></iframe>
           </div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </main>
 
       {/* FOOTER */}
       <footer className="footer">
         <img
-          src="/images/logo.png"
+          src="/images/logo-optimized.webp"
           alt="Naturalmente Bela"
           className="footer-logo"
+          width="200"
+          height="56"
         />
         <p className="footer-tagline">Beleza com propósito. Cuidado com verdade. Bem-estar de forma natural.</p>
       </footer>

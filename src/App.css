@@ -88,9 +88,10 @@
    =========================== */
 :root {
   --color-white: #FFFFFF;
-  --color-gold: #C9A24D;
-  --color-text: #333333;
-  --color-text-light: #666666;
+  --color-gold: #B89040;
+  --color-gold-light: #C9A24D;
+  --color-text: #1f1a16;
+  --color-text-light: #4a4540;
   
   --max-width: 1200px;
   --section-spacing: 96px;
@@ -257,7 +258,7 @@
 }
 
 .nav-links button.nav-cta:hover {
-  background-color: #B89040;
+  background-color: #9A7835;
   color: var(--color-white);
 }
 
@@ -451,9 +452,9 @@
 }
 
 .cta-whatsapp:hover {
-  background-color: #B89040;
+  background-color: #9A7835;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(201, 162, 77, 0.3);
+  box-shadow: 0 8px 20px rgba(184, 144, 64, 0.3);
 }
 
 .cta-instagram {
@@ -1202,7 +1203,7 @@
 }
 
 .contact-button:hover {
-  background-color: #B89040;
+  background-color: #9A7835;
   transform: translateY(-2px);
 }
 
